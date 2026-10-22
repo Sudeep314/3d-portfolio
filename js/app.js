@@ -265,7 +265,7 @@ function titleSprite(text) {
   try { ctx.letterSpacing = `${tracking}px`; } catch { /* older browsers */ }
 
   const g = ctx.createLinearGradient(0, padY, 0, h - padY);
-  g.addColorStop(0, '#ffffff');
+  g.addColorStop(0, '#dcd4d4');
   g.addColorStop(0.55, '#a8e9ff');
   g.addColorStop(1, '#4f8cff');
   ctx.shadowColor = 'rgba(110, 231, 255, 0.55)';
