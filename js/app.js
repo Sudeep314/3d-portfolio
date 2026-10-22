@@ -350,8 +350,8 @@ scene.add(coreGroup);
 const coreMesh = new THREE.Mesh(
   new THREE.IcosahedronGeometry(1.15, 5),
   new THREE.MeshStandardMaterial({
-    color: '#1d3a6e',
-    emissive: '#2f77c4',
+    color: '#f10606',
+    emissive: '#580202',
     emissiveIntensity: 0.55,
     roughness: 0.3,
     metalness: 0.7,
