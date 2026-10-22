@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sudeep Kumar M V — 3D Portfolio</title>
+  <meta name="description" content="Interactive 3D portfolio of Sudeep Kumar M V, AI Engineer and 3rd semester CSE student at RVCE. Explore skills as orbiting planets." />
+  <meta name="author" content="Sudeep Kumar M V" />
+  <meta name="theme-color" content="#05060a" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!--
+    Import map: lets us write `import * as THREE from 'three'` in js/app.js
+    instead of a long CDN URL. Pin the version so it never breaks.
+  -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!-- ============ THE 3D CANVAS ============ -->
+  <canvas id="scene" aria-label="Interactive 3D scene showing skills as orbiting planets"></canvas>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader" class="loader">
+    <div class="loader-orb"></div>
+    <p>Building your solar system<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+  </div>
+
+  <!-- ============ TOP HUD ============ -->
+  <header class="hud hud-top">
+    <div class="brand">
+      <div class="brand-avatar" id="brandAvatar">SK</div>
+      <div class="brand-text">
+        <h1 id="brandName">Sudeep Kumar M V</h1>
+        <p id="brandRole">AI Engineer</p>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <button data-panel="about"    class="nav-btn">About</button>
+      <button data-panel="skills"   class="nav-btn">Skills</button>
+      <button data-panel="projects" class="nav-btn">Projects</button>
+      <button data-panel="contact"  class="nav-btn">Contact</button>
+      <button data-panel="resume"   class="nav-btn nav-btn-accent">Resume</button>
+    </nav>
+  </header>
+
+  <!-- ============ BOTTOM HUD ============ -->
+  <div class="hud hud-bottom">
+    <div class="hint">
+      <span class="hint-icon">↔</span>
+      <span><b>Drag</b> to orbit</span>
+      <span class="sep"></span>
+      <span><b>Scroll</b> to zoom</span>
+      <span class="sep"></span>
+      <span><b>Click</b> a planet</span>
+    </div>
+
+    <div class="focus-bar" id="focusBar" hidden>
+      <span class="focus-dot"></span>
+      <span id="focusLabel">Focusing…</span>
+      <button id="resetView" class="reset-btn" title="Reset the camera (R)">Reset view</button>
+    </div>
+  </div>
+
+  <!-- ============ HOVER TOOLTIP ============ -->
+  <div id="tooltip" class="tooltip" hidden></div>
+
+  <!-- ============ SIDE PANEL ============ -->
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="panel" class="panel" aria-hidden="true" aria-label="Details panel">
+    <button class="panel-close" id="panelClose" aria-label="Close panel">&times;</button>
+    <div id="panelBody" class="panel-body"></div>
+  </aside>
+
+  <!-- ============ SCRIPT ORDER MATTERS ============ -->
+  <!-- content.js is a classic script: it runs first and defines window.PORTFOLIO -->
+  <script src="js/content.js"></script>
+  <!-- app.js is a module: it is deferred, so it runs after content.js -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
