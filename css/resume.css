@@ -1,0 +1,333 @@
+/* =============================================================
+   resume.css — a clean, print-ready A4 resume
+   Light theme on purpose: resumes print and photocopy better
+   on white, and this page exists to be turned into a PDF.
+   ============================================================= */
+
+:root {
+  --ink:       #14181f;
+  --ink-2:     #3c4553;
+  --ink-3:     #6b7686;
+  --rule:      #dfe4ec;
+  --accent:    #1f5fd0;
+  --accent-2:  #0e3f96;
+  --font:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono:      ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #eceff4;
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---------- Toolbar (screen only) ---------- */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  background: #14181f;
+  border-bottom: 3px solid var(--accent);
+}
+.toolbar-hint { color: #8e9bb0; font-size: 0.8rem; margin-left: auto; }
+.toolbar-hint b { color: #d6deec; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid #35405a;
+  background: #1e2431;
+  color: #e6ecf7;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.18s;
+}
+.btn:hover { background: #29324a; text-decoration: none; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-2); }
+
+/* ---------- The sheet ---------- */
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 24px auto;
+  padding: 13mm 14mm;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(20, 24, 31, 0.18);
+  font-size: 9.6pt;
+  line-height: 1.45;
+}
+
+/* ---------- Header ---------- */
+.r-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-bottom: 8px;
+  border-bottom: 2.5px solid var(--accent);
+}
+.r-photo {
+  width: 74px;
+  height: 74px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid var(--rule);
+}
+.r-id { flex: 1; min-width: 0; }
+.r-name {
+  margin: 0;
+  font-size: 20pt;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+}
+.r-role {
+  margin: 2px 0 0;
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.2px;
+}
+.r-tag {
+  margin: 4px 0 0;
+  font-size: 8.9pt;
+  line-height: 1.32;
+  color: var(--ink-2);
+}
+.r-contact {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font-size: 8.3pt;
+  color: var(--ink-2);
+}
+.r-contact li { display: flex; align-items: center; gap: 5px; }
+.r-contact a { color: var(--ink-2); text-decoration: none; }
+.r-contact a:hover { color: var(--accent); text-decoration: underline; }
+.r-contact .dot { color: var(--rule); }
+
+/* ---------- Layout ---------- */
+.r-body {
+  display: grid;
+  grid-template-columns: 1fr 62mm;
+  gap: 0 18px;
+  margin-top: 9px;
+}
+.r-main { min-width: 0; }
+.r-side {
+  min-width: 0;
+  border-left: 1px solid var(--rule);
+  padding-left: 16px;
+}
+
+/* ---------- Sections ---------- */
+.sec { margin-bottom: 9px; break-inside: avoid; }
+.sec:last-child { margin-bottom: 0; }
+
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 5px;
+  font-size: 9.2pt;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.sec-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.r-side .sec-title { font-size: 8.4pt; letter-spacing: 1px; }
+
+/* ---------- Summary ---------- */
+.summary { margin: 0; font-size: 8.8pt; line-height: 1.38; color: var(--ink-2); }
+
+/* ---------- Projects ---------- */
+.proj { margin-bottom: 7px; break-inside: avoid; }
+.proj:last-child { margin-bottom: 0; }
+.proj-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.proj-name { font-size: 10pt; font-weight: 700; }
+.proj-role { font-size: 8pt; color: var(--ink-3); white-space: nowrap; }
+.proj-blurb { margin: 1px 0 2px; font-size: 8.8pt; line-height: 1.35; color: var(--ink-2); }
+.proj ul {
+  margin: 2px 0 0;
+  padding-left: 14px;
+  font-size: 8.4pt;
+  line-height: 1.34;
+  color: var(--ink-2);
+}
+.proj li { margin-bottom: 1px; }
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 3px;
+}
+.tech span {
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  padding: 0.5px 5px;
+  border-radius: 3px;
+  background: #eef3fb;
+  border: 1px solid #d7e2f5;
+  color: var(--accent-2);
+}
+
+/* ---------- Education ---------- */
+.edu { margin-bottom: 7px; break-inside: avoid; }
+.edu:last-child { margin-bottom: 0; }
+.edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.edu-deg { font-size: 9.6pt; font-weight: 700; }
+.edu-when { font-size: 8pt; color: var(--ink-3); white-space: nowrap; }
+.edu-org { font-size: 8.7pt; color: var(--ink-2); }
+.edu-note {
+  font-size: 8.3pt;
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-top: 0;
+}
+.edu ul { margin: 2px 0 0; padding-left: 14px; font-size: 8.4pt; color: var(--ink-2); }
+
+/* ---------- Sidebar: skills ---------- */
+.skill-group { margin-bottom: 7px; break-inside: avoid; }
+.skill-group:last-child { margin-bottom: 0; }
+.skill-group b {
+  display: block;
+  font-size: 8.8pt;
+  color: var(--accent-2);
+  margin-bottom: 1px;
+  letter-spacing: 0.3px;
+}
+.skill-line {
+  margin: 0;
+  font-size: 8.4pt;
+  line-height: 1.36;
+  color: var(--ink-2);
+}
+.lvl {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 0.5px 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+.lvl-beginner     { background: #fdf0e3; color: #a8620c; }
+.lvl-intermediate { background: #e4f2fd; color: #14608f; }
+.lvl-learning     { background: #efeafd; color: #5b3fb0; }
+.lvl-advanced     { background: #e2f7ee; color: #106a4b; }
+
+/* ---------- Sidebar: achievements ---------- */
+.ach { margin-bottom: 5px; break-inside: avoid; }
+.ach:last-child { margin-bottom: 0; }
+.ach b { display: block; font-size: 8.8pt; font-weight: 700; color: var(--ink); }
+.ach span { display: block; font-size: 8pt; line-height: 1.32; color: var(--ink-3); }
+
+/* ---------- Sidebar: interests ---------- */
+.interests {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 8.3pt;
+  line-height: 1.34;
+  color: var(--ink-2);
+}
+.interests li { padding: 0.5px 0 0.5px 10px; position: relative; }
+.interests li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.r-foot {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule);
+  font-size: 7.6pt;
+  color: var(--ink-3);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* ---------- Small screens ----------
+   `screen` only — otherwise this also matches while printing, because an
+   A4 page is ~794 CSS px wide and would collapse the two columns. */
+@media screen and (max-width: 800px) {
+  .sheet { width: auto; margin: 12px; padding: 18px; }
+  .r-body { grid-template-columns: 1fr; }
+  .r-side { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 6px; }
+  .toolbar-hint { display: none; }
+}
+
+/* =============================================================
+   PRINT
+   ============================================================= */
+@page { size: A4; margin: 0; }
+
+@media print {
+  html, body { background: #fff; }
+  .no-print { display: none !important; }
+  .sheet {
+    width: 210mm;
+    min-height: auto;
+    margin: 0;
+    padding: 12mm 13mm;
+    box-shadow: none;
+  }
+  /* Pin the two-column layout for print, whatever the page width is. */
+  .r-body { grid-template-columns: 1fr 66mm; }
+  .r-side {
+    border-left: 1px solid var(--rule);
+    border-top: 0;
+    padding-left: 16px;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .sec, .proj, .edu, .skill-group { break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
