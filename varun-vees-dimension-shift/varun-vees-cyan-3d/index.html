@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Varun B R — interactive 3D resume portal.">
+  <title>VEES // Varun B R — 3D Resume Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Resume portal home"><span class="brand-mark">V<span>/</span></span><span>VARUN<span class="muted">//PORTAL</span></span></a>
+    <nav aria-label="Main navigation"><a href="#profile">PROFILE</a><a href="#skills">SKILLS</a><a href="#projects">PROJECTS</a><a href="#education">EDUCATION</a></nav>
+    <button class="top-download" id="downloadTop" type="button"><span>↧</span> EXPORT CV</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> VEES • PERSONAL PROFILE EXPERIENCE <span class="eyebrow-line"></span> <span>V.02</span></div>
+        <p class="hero-kicker">Software Engineer / Web Developer — aspiring</p>
+        <h1><span class="name-line" id="heroName">VARUN B R</span><span class="outline-line">BEYOND<br>THE ORDINARY<span class="cyan">.</span></span></h1>
+        <p class="hero-desc">To become a skilled software engineer and build useful technology for students and communities.</p>
+        <div class="hero-actions"><button class="primary-btn" id="enterPortal" type="button">ENTER THE PORTAL <span>↗</span></button><button class="text-btn" id="quickResume" type="button">VIEW RESUME <span>↓</span></button></div>
+        <div class="hero-meta"><span><i class="meta-square"></i> COMPUTER SCIENCE & ENGINEERING</span><span>RVCE • BENGALURU</span></div>
+      </div>
+      <div class="portal-stage" aria-label="Interactive 3D portal">
+        <div class="stage-label label-top"><span>PORTAL ENGINE</span><span>● ONLINE</span></div>
+        <div id="portalCanvas" class="portal-canvas"></div><div class="portal-ring ring-fallback" aria-hidden="true"></div>
+        <div class="portal-core-label"><span>CLICK TO</span><strong>EXPLORE</strong><span class="core-arrow">↓</span></div>
+        <button class="portal-hitarea" id="portalHitarea" aria-label="Enter the 3D portal" type="button"></button>
+        <div class="orbit-label orbit-one">01 <span>PROFILE</span></div><div class="orbit-label orbit-two">02 <span>CAPABILITIES</span></div><div class="orbit-label orbit-three">03 <span>PROJECTS</span></div>
+        <div class="stage-label label-bottom"><span>MOVE CURSOR TO INTERACT</span><span>WEBGL / THREE.JS</span></div>
+      </div>
+      <div class="scroll-cue"><span class="scroll-line"></span> SCROLL TO EXPLORE MY JOURNEY</div>
+    </section>
+
+    <section class="section profile-section" id="profile">
+      <div class="section-index">01 / IDENTITY</div><div class="section-heading"><p class="section-kicker">THE PERSON BEHIND THE PIXELS</p><h2>Profile<span class="cyan">.</span></h2></div>
+      <div class="profile-grid">
+        <div class="profile-card glass-card">
+          <div class="card-topline"><span>IDENTITY CARD</span><span>01—A</span></div>
+          <div class="avatar-orb" id="avatarOrb"><span id="avatarInitials">VB</span><img id="profilePhoto" src="profile.jpg" alt="Varun B R profile photo"><div class="avatar-orbit"></div></div>
+          <label class="photo-upload" for="photoInput">＋ CHANGE PHOTO</label><input id="photoInput" type="file" accept="image/*" hidden>
+          <h3 id="profileName">Varun B R</h3><p class="profile-role" id="profileRole">Software Engineer / Web Developer — aspiring</p>
+          <div class="status-line"><span class="live-dot"></span> LEARNING • BUILDING • ITERATING</div>
+          <div class="card-bottomline"><span>PROFILE</span><span>VARUN / CSE</span></div>
+        </div>
+        <div class="profile-content">
+          <p class="large-copy">Curious mind. <span>Builder’s mindset.</span> Always learning.</p>
+          <p class="body-copy" id="aboutText">I am a Computer Science and Engineering student at RV College of Engineering, Bengaluru. I’m interested in software engineering, web development, and building education-focused tools that make learning easier for students.</p>
+          <div class="info-grid">
+            <div><span class="info-label">EDUCATION</span><strong>B.E. — Computer Science & Engineering</strong></div>
+            <div><span class="info-label">INSTITUTION</span><strong>RV College of Engineering (RVCE)</strong></div>
+            <div><span class="info-label">FROM</span><strong>Madikeri, Karnataka</strong></div>
+            <div><span class="info-label">EMAIL</span><strong>varunbr.cs25@rvce.edu.in</strong></div>
+            <div><span class="info-label">PHONE</span><strong>7899232704</strong></div>
+            <div><span class="info-label">GITHUB</span><strong><a href="https://github.com/vishalpranavm21" target="_blank" rel="noreferrer">github.com/vishalpranavm21 ↗</a></strong></div>
+          </div>
+          <div class="profile-actions"><button class="outline-btn" id="editProfile" type="button">EDIT MY DETAILS <span>✎</span></button><button class="outline-btn" id="downloadProfile" type="button">DOWNLOAD / PRINT CV <span>↧</span></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education-section" id="education">
+      <div class="section-index">02 / EDUCATION</div><div class="section-heading"><p class="section-kicker">THE FOUNDATION</p><h2>Education<span class="cyan">.</span></h2></div>
+      <div class="timeline">
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">CURRENT</div><div><h3>B.E. — Computer Science & Engineering</h3><p>RV College of Engineering (RVCE), Bengaluru, Karnataka.</p></div><span class="timeline-status">IN PROGRESS</span></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">PRE-UNIVERSITY</div><div><h3>Vijaya Pre-University College (VPUC), Sargur, Mysore</h3><p>Completed Pre-University Course with 97% in 2nd PUC.</p></div><span class="timeline-status">COMPLETED</span></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">ENTRANCE EXAM</div><div><h3>KCET</h3><p>Secured KCET Rank 705.</p></div><span class="timeline-status">RANK 705</span></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">SCHOOLING</div><div><h3>MDRS, Kudige</h3><p>School education completed at MDRS, Kudige.</p></div><span class="timeline-status">COMPLETED</span></div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="section-index">03 / CAPABILITIES</div><div class="section-heading"><p class="section-kicker">TOOLS IN THE TOOLKIT</p><h2>Skill matrix<span class="cyan">.</span></h2></div>
+      <p class="section-intro">Select a node to inspect the skills you provided.</p>
+      <div class="skills-layout">
+        <div class="skill-orbit glass-card" id="skillOrbit"><div class="orbit-track track-a"></div><div class="orbit-track track-b"></div><div class="skill-center"><span>CORE</span><strong>SKILLS</strong><small>SELECT A NODE</small></div>
+          <button class="skill-node node-html active" data-skill="HTML & CSS" type="button">HTML<br><small>01</small></button><button class="skill-node node-js" data-skill="JavaScript" type="button">JS<br><small>02</small></button><button class="skill-node node-c" data-skill="C Programming" type="button">C<br><small>03</small></button><button class="skill-node node-git" data-skill="Git & GitHub" type="button">GIT<br><small>04</small></button><button class="skill-node node-ui" data-skill="Web Development" type="button">WEB<br><small>05</small></button>
+        </div>
+        <div class="skill-detail glass-card"><div class="card-topline"><span>SKILL INSPECTOR</span><span id="skillNumber">NODE_01</span></div><div class="skill-icon" id="skillIcon">&lt;/&gt;</div><p class="section-kicker">SELECTED CAPABILITY</p><h3 id="skillTitle">HTML & CSS</h3><p id="skillDescription">HTML and CSS.</p><div class="skill-tags" id="skillTags"><span>HTML</span><span>CSS</span></div><p class="small-note">Only add proficiency levels or detailed claims you can demonstrate.</p></div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="section-index">04 / PROJECT ARCHIVE</div><div class="section-heading"><p class="section-kicker">LEARNING THROUGH MAKING</p><h2>Projects<span class="cyan">.</span></h2></div>
+      <p class="section-intro">Project descriptions below are based on the names and purposes previously discussed. Update status and links to match what is completed.</p>
+      <div class="project-grid">
+        <article class="project-card glass-card"><div class="project-visual visual-one"><div class="visual-grid"></div><div class="cube-shape"></div><span class="visual-code">01 / EDTECH</span></div><div class="project-body"><div class="project-meta"><span>EDUCATION PLATFORM</span><span>01</span></div><h3>VEES</h3><p>An education platform concept for students preparing for KCET, JEE Main/Advanced, and NEET, with study planning and test-related features.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>FIREBASE</span></div><a href="https://github.com/vishalpranavm21" class="project-link" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a></div></article>
+        <article class="project-card glass-card"><div class="project-visual visual-two"><div class="visual-grid"></div><div class="rings-shape"></div><span class="visual-code">02 / COMMUNITY</span></div><div class="project-body"><div class="project-meta"><span>WORKFORCE PLATFORM</span><span>02</span></div><h3>VEES Workforce</h3><p>A rural employment platform concept intended to connect skilled and unskilled workers with job providers.</p><div class="project-tags"><span>WEB DEVELOPMENT</span><span>LOCALIZATION</span></div><a href="https://github.com/vishalpranavm21" class="project-link" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a></div></article>
+        <article class="project-card glass-card"><div class="project-visual visual-three"><div class="visual-grid"></div><div class="sphere-shape"></div><span class="visual-code">03 / PRODUCTIVITY</span></div><div class="project-body"><div class="project-meta"><span>BUDGETING TOOL</span><span>03</span></div><h3>Student Budget Planner</h3><p>A student-focused budgeting project, also referred to as PocketBook in project discussions.</p><div class="project-tags"><span>STUDENT TOOL</span><span>WEB APP</span></div><a href="https://github.com/vishalpranavm21" class="project-link" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a></div></article>
+        <article class="project-card glass-card"><div class="project-visual visual-one"><div class="visual-grid"></div><div class="cube-shape"></div><span class="visual-code">04 / CRUD</span></div><div class="project-body"><div class="project-meta"><span>WEB APPLICATION</span><span>04</span></div><h3>StudentKart</h3><p>A CRUD application project discussed using Node.js and MongoDB.</p><div class="project-tags"><span>NODE.JS</span><span>MONGODB</span></div><a href="https://github.com/vishalpranavm21" class="project-link" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a></div></article>
+        <article class="project-card glass-card"><div class="project-visual visual-two"><div class="visual-grid"></div><div class="rings-shape"></div><span class="visual-code">05 / IOT</span></div><div class="project-body"><div class="project-meta"><span>HARDWARE / IOT</span><span>05</span></div><h3>Smart Room IoT</h3><p>A smart-room project discussed with ESP8266/Arduino, sensors, LCD output, and Blynk monitoring.</p><div class="project-tags"><span>ESP8266</span><span>SENSORS</span><span>BLYNK</span></div><a href="https://github.com/vishalpranavm21" class="project-link" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a></div></article>
+      </div>
+      <p class="disclaimer">These are project summaries, not claims of professional experience. Add individual repository links and specify whether each project is completed, ongoing, or a concept.</p>
+    </section>
+
+    <section class="section extras-section" id="extras">
+      <div class="section-index">05 / RECOGNITION</div><div class="section-heading"><p class="section-kicker">MILESTONES & LEARNING</p><h2>Highlights<span class="cyan">.</span></h2></div>
+      <div class="timeline">
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">ACADEMICS</div><div><h3>97% — 2nd PUC</h3><p>Academic result supplied by Varun.</p></div><span class="timeline-status">REPORTED</span></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">CERTIFICATION</div><div><h3>Android App Development</h3><p>Certification/course supplied by Varun. Provider and completion date not provided.</p></div><span class="timeline-status">DETAILS NEEDED</span></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-date">LANGUAGES</div><div><h3>English • Kannada</h3><p>Languages supplied by Varun.</p></div><span class="timeline-status">PROFILE</span></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact"><div class="contact-glow"></div><div class="section-index">06 / CONNECTION</div><p class="section-kicker">THE PORTAL IS OPEN</p><h2>Let's build<br>what's <span class="cyan">next.</span></h2><p class="contact-copy">Software development • Educational technology • Problem solving</p><div class="contact-actions"><a class="primary-btn link-btn" href="mailto:varunbr.cs25@rvce.edu.in">SEND AN EMAIL <span>↗</span></a><a class="outline-btn link-btn" href="https://github.com/vishalpranavm21" target="_blank" rel="noreferrer">GITHUB PROFILE <span>↗</span></a><a class="outline-btn link-btn" href="tel:7899232704">CALL ME <span>↗</span></a></div><div class="contact-foot"><span>VARUN B R // RESUME PORTAL</span><span>BUILT WITH CURIOSITY</span><a href="#home">BACK TO TOP ↑</a></div></section>
+  </main>
+  <dialog id="profileDialog" class="profile-dialog"><form method="dialog" id="profileForm"><div class="dialog-head"><div><p class="section-kicker">PROFILE CONFIGURATION</p><h2>Make it yours<span class="cyan">.</span></h2></div><button class="close-dialog" value="cancel" aria-label="Close">×</button></div><p class="dialog-note">Edits update this browser session. To make them permanent, edit index.html or script.js.</p><label>Full name<input id="inputName" name="name" value="Varun B R" required></label><label>Role / headline<input id="inputRole" name="role" value="Software Engineer / Web Developer — aspiring"></label><label>About you<textarea id="inputAbout" name="about" rows="3">Computer Science and Engineering student at RVCE interested in software development and educational technology.</textarea></label><label>Email<input id="inputEmail" name="email" type="email" value="varunbr.cs25@rvce.edu.in"></label><label>GitHub profile<input id="inputGithub" name="github" type="url" value="https://github.com/vishalpranavm21"></label><button class="primary-btn submit-btn" type="submit">SAVE PROFILE <span>✓</span></button></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div><footer class="site-footer"><span>© <span id="year"></span> VARUN B R</span><span>MADE WITH CURIOSITY <span class="cyan">✳</span></span><span>THREE.JS / HTML / CSS / JS</span></footer>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
