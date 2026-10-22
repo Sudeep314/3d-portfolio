@@ -482,7 +482,7 @@ function buildPlanet(def, index) {
     const moon = new THREE.Mesh(
       new THREE.SphereGeometry(moonR, 22, 16),
       new THREE.MeshStandardMaterial({
-        color: '#dbe7ff',
+        color: '#929396',
         emissive: new THREE.Color(def.color),
         emissiveIntensity: 0.4,
         roughness: 0.35,
